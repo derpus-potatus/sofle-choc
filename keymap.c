@@ -324,40 +324,48 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef ENCODER_ENABLE
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
+  if (index == 0) {
+    switch (get_highest_layer(layer_state)) {
+      case _QWERTYWIN:
+      case _QWERTYMAC:
         if (clockwise) {
-            tap_code(KC_MPRV);
+          tap_code(KC_MPRV);
         } else {
-            tap_code(KC_MNXT);
+          tap_code(KC_MNXT);
         }
-		} else if (index == 1) {
-			switch (get_highest_layer(layer_state)) {
-				case _QWERTYWIN:
-        case _QWERTYMAC:
-					if (clockwise) {
-						tap_code(KC_UP);
-					} else {
-						tap_code(KC_DOWN);
-					}
-				break;
-			case _RAISE:
-			case _LOWER:
-					if (clockwise) {
-						tap_code(KC_LEFT);
-					} else {
-						tap_code(KC_RIGHT);
-					}
-				break;
-			default:
-					if (clockwise) {
-						tap_code(KC_WH_D); // Mouse Keys not enabled
-					} else {
-						tap_code(KC_WH_U); // Mouse Keys not enabled
-					}
-				break;
-		}
+        break;
+      case _LOWER:
+      case _RAISE:
+        if (clockwise) {
+          tap_code(KC_VOLD);
+        } else {
+          tap_code(KC_VOLU);
+        }
+        break;
     }
-    return true;
-}
+  } else {
+    if (index == 1) {
+      switch (get_highest_layer(layer_state)) {
+        case _QWERTYWIN:
+        case _QWERTYMAC:
+          if (clockwise) {
+            tap_code(KC_UP);
+          } else {
+            tap_code(KC_DOWN);
+          }
+          break;
+        case _LOWER:
+        case _RAISE:
+          if (clockwise) {
+            tap_code(KC_LEFT);
+          } else {
+            tap_code(KC_RIGHT);
+          }
+          break;
+        }
+      }
+    }
+    return false;
+  }
 
 #endif
