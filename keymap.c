@@ -46,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
   KC_GRV,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                        KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-  KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,      KC_MPLY,  KC_CAPS, KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT),
+  KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_MPLY,    KC_CAPS, KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT),
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
                   KC_LGUI, KC_LALT, KC_LCTRL, MO(_LOWER),KC_SPC,   KC_SPC, MO(_RAISE), KC_ENT, KC_RALT, KC_RGUI
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
  KC_GRV,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,                        KC_H,    KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,
  //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
- KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,      KC_MPLY,  KC_CAPS, KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT),
+ KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,   KC_MPLY,    KC_CAPS, KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT),
  //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
                  KC_LCTRL, KC_LALT, KC_LGUI, MO(_LOWER),KC_SPC,   KC_SPC, MO(_RAISE), KC_ENT, KC_RALT, KC_RGUI
  //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
@@ -366,6 +366,6 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
       }
     }
     return false;
-  }
+}
 
 #endif
